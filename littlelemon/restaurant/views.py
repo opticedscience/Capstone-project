@@ -19,6 +19,7 @@ def home(request):
   return render(request, 'home.html',{})
 
 class MenuItemView(ListCreateAPIView):
+    permission_classes = [AllowAny]
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
     # def get_permissions(self):
@@ -27,6 +28,7 @@ class MenuItemView(ListCreateAPIView):
     #     return [AllowAny]
 
 class SingleMenuItemView(RetrieveUpdateAPIView,DestroyAPIView):
+    permission_classes = [AllowAny]
     queryset=Menu.objects.all()
     serializer_class = MenuSerializer
     # def get_permissions(self):
